@@ -8,10 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,9 +28,17 @@ public class TrainingCenterController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TrainingCenterDto>> getAllTrainingCenters() {
+    public ResponseEntity<List<TrainingCenterDto>> getAllTrainingCenters(
+            @RequestParam(required = false) String centerName,
+            @RequestParam(required = false) String city,
+            @RequestParam(required = false) String state,
+            @RequestParam(required = false) Integer minCapacity,
+            @RequestParam(required = false) Integer maxCapacity,
+            @RequestParam(required = false) String courseOffer
+    ) {
         log.info("Received request to fetch all training centers");
-        List<TrainingCenterDto> trainingCenters = trainingCenterService.getAllTrainingCenters();
+        List<TrainingCenterDto> trainingCenters = trainingCenterService.getAllTrainingCenters(
+                centerName, city, state, minCapacity, maxCapacity, courseOffer);
         return ResponseEntity.ok(trainingCenters);
     }
 

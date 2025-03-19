@@ -8,5 +8,7 @@ public interface TrainingCenterService {
 
     TrainingCenterDto createTrainingCenter(TrainingCenterDto trainingCenterDto);
 
-    List<TrainingCenterDto> getAllTrainingCenters();
+    List<TrainingCenterDto> getAllTrainingCenters(String centerName, String city, String state,
+                                                  Integer minCapacity, Integer maxCapacity,
+                                                  String courseOffered);
 }
