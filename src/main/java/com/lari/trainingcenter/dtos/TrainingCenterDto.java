@@ -5,6 +5,8 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -27,10 +29,12 @@ public class TrainingCenterDto {
 
     private List<String> coursesOffered;
 
+    private LocalDateTime createdOn;
+
     @Email(message = "Invalid email")
     private String contactEmail;
 
-    @Pattern(regexp = "\\{10}$", message = "Invalid phone number, must be 10 digits")
+    @Pattern(regexp = "\\d{10}$", message = "Invalid phone number, must be 10 digits")
     private String contactPhone;
 
 }

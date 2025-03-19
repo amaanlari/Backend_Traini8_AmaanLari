@@ -7,7 +7,10 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -36,11 +39,11 @@ public class TrainingCenter {
     private List<String> coursesOffered;
 
     @CreationTimestamp
-    private Long createdOn;
+    private LocalDateTime createdOn;
 
     @Email
     private String contactEmail;
 
-    @Pattern(regexp = "\\{10}$")
+    @Pattern(regexp = "\\d{10}$")
     private String contactPhone;
 }
