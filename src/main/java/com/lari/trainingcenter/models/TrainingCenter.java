@@ -27,7 +27,7 @@ public class TrainingCenter {
 
     @NotBlank
     @Size(min = 12, max = 12)
-    @Pattern(regexp = "^[a-zA-Z0-9]{12}$")
+    @Pattern(regexp = "^[a-zA-Z0-9]*$")
     private String centerCode;
 
     @Embedded

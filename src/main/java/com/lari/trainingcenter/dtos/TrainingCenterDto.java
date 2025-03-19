@@ -5,7 +5,6 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class TrainingCenterDto {
 
     @NotBlank(message = "Center code is required")
     @Size(min = 12, max = 12, message = "Center code should be 12 characters long")
-    @Pattern(regexp = "^[a-zA-Z0-9]{12}$", message = "Center code should contain only alphanumeric characters")
+    @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "Center code should contain only alphanumeric characters")
     private String centerCode;
 
     @Valid
