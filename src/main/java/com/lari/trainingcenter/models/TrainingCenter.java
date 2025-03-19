@@ -7,9 +7,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 
