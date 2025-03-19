@@ -36,8 +36,11 @@ public class TrainingCenterServiceImpl implements TrainingCenterService {
                                                          Integer minCapacity, Integer maxCapacity,
                                                          String courseOffered) {
         log.info("Fetching all training centers");
-        List<TrainingCenterDto> trainingCenterDtos = trainingCenterRepository.findAll().stream()
-                .map(trainingCenter -> modelMapper.map(trainingCenter, TrainingCenterDto.class)).toList();
+        List<TrainingCenterDto> trainingCenterDtos = trainingCenterRepository
+                .findFiltered(centerName, city, state, minCapacity, maxCapacity, courseOffered)
+                .stream()
+                .map(trainingCenter -> modelMapper.map(trainingCenter, TrainingCenterDto.class))
+                .toList();
         log.info("Fetched {} training centers", trainingCenterDtos.size());
         return trainingCenterDtos;
     }
